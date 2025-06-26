@@ -74,7 +74,6 @@ export class OpenAIContentGenerator implements ContentGenerator {
     if (!reader) return;
     const decoder = new TextDecoder();
     let buffer = '';
-    let text = '';
     while (true) {
       const { done, value } = await reader.read();
       if (done) break;
@@ -88,8 +87,7 @@ export class OpenAIContentGenerator implements ContentGenerator {
         const json = JSON.parse(payload);
         const delta = json.choices?.[0]?.delta?.content;
         if (delta) {
-          text += delta;
-          yield this.toResponse(text);
+          yield this.toResponse(delta);
         }
       }
     }
