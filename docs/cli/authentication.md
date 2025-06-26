@@ -86,7 +86,16 @@ The Gemini CLI requires you to authenticate with Google's AI services. On initia
           ```
         - For repeated use, you can add the environment variables to your `.env` file (located in the project directory or user home directory) or your shell's configuration file (like `~/.bashrc`, `~/.zshrc`, or `~/.profile`). For example, the following commands add the environment variables to a `~/.bashrc` file:
           ```bash
-          echo 'export GOOGLE_API_KEY="YOUR_GOOGLE_API_KEY"' >> ~/.bashrc
-          echo 'export GOOGLE_GENAI_USE_VERTEXAI=true' >> ~/.bashrc
-          source ~/.bashrc
-          ```
+         echo 'export GOOGLE_API_KEY="YOUR_GOOGLE_API_KEY"' >> ~/.bashrc
+         echo 'export GOOGLE_GENAI_USE_VERTEXAI=true' >> ~/.bashrc
+         source ~/.bashrc
+         ```
+
+5. **OpenAI compatible API:**
+
+   - Set the following environment variables before running the CLI:
+     ```bash
+     export OPENAI_MODEL_ID="YOUR_MODEL_ID"
+     export OPENAI_API_KEY="YOUR_OPENAI_KEY"
+     export OPENAI_BASE_URL="https://your-openai-endpoint"
+     ```
