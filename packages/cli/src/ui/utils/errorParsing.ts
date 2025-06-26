@@ -51,6 +51,8 @@ function getRateLimitMessage(authType?: AuthType): string {
       return RATE_LIMIT_ERROR_MESSAGE_USE_GEMINI;
     case AuthType.USE_VERTEX_AI:
       return RATE_LIMIT_ERROR_MESSAGE_VERTEX;
+    case AuthType.USE_OPENAI:
+      return RATE_LIMIT_ERROR_MESSAGE_DEFAULT;
     default:
       return RATE_LIMIT_ERROR_MESSAGE_DEFAULT;
   }
