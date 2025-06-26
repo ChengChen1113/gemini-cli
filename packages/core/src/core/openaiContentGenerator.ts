@@ -74,6 +74,10 @@ export class OpenAIContentGenerator implements ContentGenerator {
     if (!reader) return;
     const decoder = new TextDecoder();
     let buffer = '';
+<<<<<<< vlye9o-codex/update-to-openai-compatible-api
+=======
+    let text = '';
+>>>>>>> main
     while (true) {
       const { done, value } = await reader.read();
       if (done) break;
@@ -87,7 +91,12 @@ export class OpenAIContentGenerator implements ContentGenerator {
         const json = JSON.parse(payload);
         const delta = json.choices?.[0]?.delta?.content;
         if (delta) {
+<<<<<<< vlye9o-codex/update-to-openai-compatible-api
           yield this.toResponse(delta);
+=======
+          text += delta;
+          yield this.toResponse(text);
+>>>>>>> main
         }
       }
     }
