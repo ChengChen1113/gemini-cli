@@ -35,5 +35,12 @@ export const validateAuthMethod = (authMethod: string): string | null => {
     return null;
   }
 
+  if (authMethod === AuthType.USE_OPENAI) {
+    if (!process.env.OPENAI_API_KEY || !process.env.OPENAI_BASE_URL) {
+      return 'OPENAI_API_KEY and OPENAI_BASE_URL environment variables must be set.';
+    }
+    return null;
+  }
+
   return 'Invalid auth method selected.';
 };
